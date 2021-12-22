@@ -23,7 +23,6 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //String createTableSTatementOne = "CREATE TABLE CustTable(ActivityID Integer PRIMARY KEY AUTOINCREMENT, " + Activity_NAME_FIRST + " Text, ActivityAge Int, ActiveActivity BOOL) ";
         String createTableSTatement = "CREATE TABLE " + ACTIVITY_TABLE + "(" + ACTIVITY_ID + " Integer PRIMARY KEY AUTOINCREMENT, " + ACTIVITY_INFO + " Text, " + ACTIVITY_DATE + " Text, " + ACTIVE_STATUS + " BOOL) ";
         db.execSQL(createTableSTatement);
     }
@@ -67,7 +66,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
         ArrayList<ActivityModel> ActivityArrayList = new ArrayList<>();
 
-        // moving our cursor to first position.
+        // moving cursor to first position.
         if (cursorCourses.moveToFirst()) {
             do {
                 ActivityModel activityModel = new ActivityModel(cursorCourses.getString(1),
